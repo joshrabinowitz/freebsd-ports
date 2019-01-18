@@ -20,17 +20,12 @@ GH_TAGNAME=	94d5ae4
 SCRIPTS=	git-secret
 ALL_TARGET=	git-secret
 
-#post-extract:
-#	@cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} make test
 post-extract:
 	@cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${CAT} src/version.sh src/_utils/*.sh src/commands/*.sh src/main.sh > git-secret
-	@cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${CHMOD} +x git-secret; sync
 
-#do-install:
-	#@cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${WRKSRC}/utils/install.sh ${PREFIX}
 do-install:
-	@cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${CP} git-secret ${PREFIX}/bin/git-secret
-	#@cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${CP} man/man1/*.1.gz ${PREFIX}/man/man1/
-	#@cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${CP} man/man7/*.7.gz ${PREFIX}/man/man7/
+	${INSTALL_SCRIPT} ${WRKSRC}/git-secret ${STAGEDIR}${PREFIX}/bin/
+	${INSTALL_MAN} ${WRKSRC}/man/man1/*.1 ${STAGEDIR}${PREFIX}/man/man1/
+	${INSTALL_MAN} ${WRKSRC}/man/man7/*.7 ${STAGEDIR}${PREFIX}/man/man7/
 
 .include <bsd.port.mk>
