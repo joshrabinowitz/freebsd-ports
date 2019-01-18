@@ -10,7 +10,7 @@ COMMENT=	Bash tool to store your private data inside a git repository
 LICENSE=	MIT
 #MASTER_SITES=	https://github.com/sobolevn/git-secret/archive/
 
-RUN_DEPENDS=	gawk:lang/gawk git:devel/git gpg2:security/gnupg
+RUN_DEPENDS=	gawk:lang/gawk git:devel/git gpg2:security/gnupg bash:shells/bash
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	sobolevn
@@ -21,7 +21,7 @@ SCRIPTS=	git-secret
 ALL_TARGET=	git-secret
 
 post-extract:
-	@cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${CAT} src/version.sh src/_utils/*.sh src/commands/*.sh src/main.sh > git-secret
+	@cd ${WRKSRC} && ${CAT} src/version.sh src/_utils/*.sh src/commands/*.sh src/main.sh > git-secret
 
 do-install:
 	${INSTALL_SCRIPT} ${WRKSRC}/git-secret ${STAGEDIR}${PREFIX}/bin/
