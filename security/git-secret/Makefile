@@ -18,9 +18,10 @@ GH_PROJECT=	git-secret
 GH_TAGNAME=	94d5ae4
 
 SCRIPTS=	git-secret
+ALL_TARGET=	git-secret
 
-post-extract:
-	@cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} make test
+#post-extract:
+#	@cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} make test
 
 do-install:
 	@cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${WRKSRC}/utils/install.sh ${PREFIX}
