@@ -4,10 +4,10 @@
 
 ## From section 3.4 Testing the Port, Recommended Test Ordering
 
--   make stage
--   make check-orphans
--   make package
--   make install
--   make deinstall
--   make package (as user)
+-   make stage			(OK)
+-   make check-orphans		(OK)
+-   make package		(OK)
+-   make install		(OK)
+-   make deinstall		(OK)
+-   make package (as user)	(NOT TESTED, expected to work)
 
