@@ -10,7 +10,7 @@ COMMENT=	Bash tool to store your private data inside a git repository
 LICENSE=	MIT
 #MASTER_SITES=	https://github.com/sobolevn/git-secret/archive/
 
-RUN_DEPENDS=	gawk:lang/gawk git:devel/git gpg2:security/gnupg bash:shells/bash
+RUN_DEPENDS=	bash:shells/bash gawk:lang/gawk git:devel/git gpg2:security/gnupg
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	sobolevn
